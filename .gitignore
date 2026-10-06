@@ -1,0 +1,13 @@
+# Virtual environment: anyone can rebuild it from requirements.txt
+venv/
+
+# Python's auto-generated compiled files
+__pycache__/
+*.pyc
+
+# Secrets: database password etc. NEVER commit this.
+.env
+
+# Editor settings (personal, not part of the project)
+.vscode/
+.idea/

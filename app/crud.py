@@ -81,3 +81,12 @@ def increment_click(db: Session, db_url: URL) -> URL:
     db.commit()
     db.refresh(db_url)
     return db_url
+
+
+def delete_url(db: Session, db_url: URL) -> None:
+    """Permanently remove the row (hard delete). This cannot be undone.
+
+    Phase 1 equivalent: del url_db[short_code]
+    """
+    db.delete(db_url)  # mark the row for deletion (pending, like db.add)
+    db.commit()        # sends DELETE FROM urls WHERE id = ... and makes it permanent
